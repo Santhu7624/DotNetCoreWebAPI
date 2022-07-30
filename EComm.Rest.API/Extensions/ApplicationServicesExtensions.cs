@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using EComm.DataAccess.Data;
+using EComm.Model.Interfaces;
+using EComm.Rest.API.Errors;
+using Microsoft.AspNetCore.Mvc;
+
+namespace EComm.Rest.API.Extensions
+{
+    public static class ApplicationServicesExtensions
+    {
+        public static IServiceCollection AddApplicationServices(this IServiceCollection services)
+        {
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.Configure<ApiBehaviorOptions>(oprtions =>
+            {
+                oprtions.InvalidModelStateResponseFactory = ActionContext =>
+                {
+                    var errors = ActionContext.ModelState
+                                .Where(e => e.Value.Errors.Count > 0)
+                                .SelectMany(x => x.Value.Errors)
+                                .Select(x => x.ErrorMessage).ToArray();
+                    var errorResponse = new APIValidationResponse
+                    {
+                        Errors = errors
+                    };
+                    return new BadRequestObjectResult(errorResponse);
+                };
+            });
+
+            return services;
+        }
+    }
+}

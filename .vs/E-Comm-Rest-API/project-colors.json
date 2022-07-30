@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "58a99d68-ba25-48f3-9408-4b5539a8ce15": {
+      "ProjectGuid": "58a99d68-ba25-48f3-9408-4b5539a8ce15",
+      "DisplayName": "EComm.Rest.API",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

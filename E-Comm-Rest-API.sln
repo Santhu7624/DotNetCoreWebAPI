@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EComm.Rest.API", "EComm.Rest.API\EComm.Rest.API.csproj", "{58A99D68-BA25-48F3-9408-4B5539A8CE15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EComm.Model", "Ecomm.Model\EComm.Model.csproj", "{E35114E9-523B-4662-909D-B848B34BC1B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EComm.DataAccess", "Ecomm.DataAccess\EComm.DataAccess.csproj", "{E419B6F5-A27D-4E9B-90A1-6D822B82B8CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58A99D68-BA25-48F3-9408-4B5539A8CE15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58A99D68-BA25-48F3-9408-4B5539A8CE15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58A99D68-BA25-48F3-9408-4B5539A8CE15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58A99D68-BA25-48F3-9408-4B5539A8CE15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E35114E9-523B-4662-909D-B848B34BC1B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E35114E9-523B-4662-909D-B848B34BC1B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E35114E9-523B-4662-909D-B848B34BC1B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E35114E9-523B-4662-909D-B848B34BC1B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E419B6F5-A27D-4E9B-90A1-6D822B82B8CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E419B6F5-A27D-4E9B-90A1-6D822B82B8CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E419B6F5-A27D-4E9B-90A1-6D822B82B8CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E419B6F5-A27D-4E9B-90A1-6D822B82B8CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
