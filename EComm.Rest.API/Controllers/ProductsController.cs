@@ -41,28 +41,20 @@ namespace EComm.Rest.API.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<ProductResponseModel>>> GetProducts([FromQuery]ProductSpecParams productParams)
+        public async Task<ActionResult<Pagination<ProductResponseModel>>> GetProducts([FromQuery]ProductSpecParams productParams)
         {
             _logger.LogInformation("GetProducts Triggered");
             var spec = new ProductsWithTypesandBrandsSpec(productParams);
             var countSpec = new ProductWithFiltersForCountSpecification(productParams);
             var totalItems = await _productRepo.CountAsync(countSpec);
             var products = await _productRepo.ListAsync(spec);
-
+            _logger.LogInformation("total items count : "+ totalItems);
+            //_logger.LogInformation("PageIndex : "+ totalItems);
+            //_logger.LogInformation("total items count : "+ totalItems);
             var respData = _mapper
-                            .Map<IReadOnlyList<Product>,IReadOnlyList<ProductResponseModel>>(products);
+                            .Map<IReadOnlyList<ProductResponseModel>>(products);
             return Ok(new Pagination<ProductResponseModel>(productParams.PageIndex,productParams.PageSize,totalItems,respData));
-            // return products.Select(product => new ProductResponseModel
-            // {
-            //     Id = product.Id,
-            //     Name = product.Name,
-            //     Description = product.Description,
-            //     Price = product.Price,
-            //     PictureUrl = product.PictureUrl,
-            //     ProductBrand = product.ProductBrand.Name,
-            //     ProductType = product.ProductType.Name
-
-            // }).ToList();
+            
            
         }
 
@@ -74,18 +66,6 @@ namespace EComm.Rest.API.Controllers
             var spec = new ProductsWithTypesandBrandsSpec(id);
             var product = await _productRepo.GetEntityWithSpec(spec);
             if(product == null) return NotFound(new APIResponse(404));
-
-            // return new ProductResponseModel
-            // {
-            //     Id = product.Id,
-            //     Name = product.Name,
-            //     Description = product.Description,
-            //     Price = product.Price,
-            //     PictureUrl = product.PictureUrl,
-            //     ProductBrand = product.ProductBrand.Name,
-            //     ProductType = product.ProductType.Name
-
-            // };
 
             return _mapper.Map<Product, ProductResponseModel>(product);
 
